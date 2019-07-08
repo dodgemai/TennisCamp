@@ -1,6 +1,3 @@
-.container-fluid {
-  padding: 0px;
-}
 /* Header */
 header {
   background-color: darkblue;
@@ -9,6 +6,7 @@ header {
   text-align: center;
   padding: 20px 10px 20px 10px;
 }
+
 nav {
     border-top: 3px dashed red;
     border-bottom: 3px dashed red;
@@ -17,14 +15,49 @@ nav {
     display: block;
     justify-content: right;
 }
+nav a {
+    text-decoration: none;
+    text-align: center;
+    width: 40px;
+}
+nav a:hover {
+    background-color: white;
+    color: darkblue;
+    border: thin solid red;
+}
+nav a:active {
+    background-color: red;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width:100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+td,
+th {
+  padding: 5px;
+  border-bottom: 1px solid #aaa;
+}
+
 .back {
   float: left;
   margin-right: 20px;
+}
+.back a{
+  padding: 5px;
+  text-decoration: none;
 }
 .search {
   display: flex;
   align-items: center;
   width: 100%;
+}
+.search a:visited{
+  color: darkblue;
 }
 .search .btn {
   color: darkgreen;
@@ -62,34 +95,7 @@ form .form-control {
   border: thin solid black;
 }
 
-label {
-  display: block;
-  float: left;
-}
-label[for="id"]
-{
-    display:none;
-}
-#id {
-  display: none;
-}
-
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width:100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-td,
-th {
-  padding: 5px;
-  border-bottom: 1px solid #aaa;
-}
-
-/* Create form stylings*/
+/******************/
 label {
   display: inline-block;
   float: left;
@@ -122,7 +128,7 @@ td, th {
   margin-left: 10px;
   width: 100%;
 }
-.form-group .col-6 {
+.form-group input {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -150,5 +156,4 @@ td, th {
 .col-6 {
     flex: 0 0 100%;
     max-width: 60%;;
-    display: block;
 }

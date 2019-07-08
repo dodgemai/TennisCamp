@@ -1,9 +1,5 @@
 <?php
-/**
- * Use an HTML form to edit an entry in the
- * users table.
- *
- */
+
 require "../config.php";
 require "../common.php";
 
@@ -12,7 +8,7 @@ if (isset($_POST['submit'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
     $user =[
-      "id"        => $_POST['id'],
+      "id" => $_POST['id'],
       "name" => $_POST['name'],
       "level" => $_POST['level'],
       "age" => $_POST['age'],
@@ -42,13 +38,10 @@ if (isset($_POST['submit'])) {
       "fatherPickUp" => $_POST['fatherPickUp'],
       "pickUpList" => $_POST['pickUpList']
     ];
-    $sql = "UPDATE users
-            SET id = :id,
-              name = :name
-            WHERE id = :id";
-
-  $statement = $connection->prepare($sql);
-  $statement->execute($user);
+    $sql = "SELECT * FROM users";
+    $statement = $connection->prepare($sql);
+    $statement->execute($user);
+    $result = $statement->fetchAll();
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
   }
@@ -75,20 +68,24 @@ if (isset($_GET['id'])) {
 
 <?php require "templates/header.php"; ?>
 
-<?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['name']); ?> successfully updated.</blockquote>
-<?php endif; ?>
+  <h2><?php echo $user["name"]?></h2>
 
-<h2>Edit</h2>
-
-<form method="post">
-    <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <?php foreach ($user as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?> </label>
-	    <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>> <br />
-    <?php endforeach; ?>
-    <input type="submit" name="submit" value="Submit">
-</form>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><?php echo escape($user["id"]); ?></td>
+        <td><?php echo escape($user["name"]); ?></td>
+        <td><?php echo escape($user["level"]); ?></td>
+      </tr>
+    </tbody>
+  </table>
 
 <a href="index.php">Back to home</a>
 

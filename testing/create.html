@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Tennis Academy Database</title>
+
+    <link rel="stylesheet" href="main.css" />
+
+  </head>
+
+  <body>
+    <div class="container-fluid">
+    <header>
+      <h1>Rob Nickels Tennis Academy Database</h1>
+    </header>
+
+    <nav class="navbar justify-content-between">
+        <div class="search">
+          <div class="back"><button type="button" class="btn btn-link" href="index.php">Back</button></div>
+          <form class="form-inline" method="post" action="search.php">
+            <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
+            <input class="form-control" type="text" id="name" name="name" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="Search">Search</button>
+          </form>
+          <form class="form-inline" style="float: left;" method="post" action="filter.php">
+            <select class="custom-select" id="inputGroupSelect">
+              <option selected>Choose...</option>
+              <option value="Academy">Academy</option>
+              <option value="Junior">Junior</option>
+              <option value="Future Stars">Future Stars</option>
+              <option value="Elite">Elite</option>
+            </select>
+            <button class="btn btn-outline-success my-2 my-sm-0" name="submit" type="submit">Filter</button>
+          </form>
+          <div class="add"><button type="button" class="btn btn-link" href="create.php">+</button></div>
+          <!-- <div class="input-group mb-3" method="post" action"filter.php">
+            <select class="custom-select" id="inputGroupSelect">
+              <option selected>Choose...</option>
+              <option value="Academy">Academy</option>
+              <option value="Junior">Junior</option>
+              <option value="Future Stars">Future Stars</option>
+              <option value="Elite">Elite</option>
+            </select>
+              <button class="btn btn-outline-success my-2 my-sm-0" name="submit" type="submit">Filter</button>
+          </div> -->
+        </div>
+      <!-- <a class="navbar-brand" href="create.php">+</a> -->
+    </nav>
+      <div class="add-form row">
+
+
+          <form method="post" class="create-form">
+            <h2>Add New Entry</h2>
+            <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
+            <div class="form-group row">
+              <label for="name" class="col-3">Name </label>
+              <input class="col-6" type="text" name="name" id="name"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="level" class="col-3">Level </label>
+              <input class="col-6" type="text" name="level" id="level"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="age" class="col-3">Age </label>
+              <input class="col-6" type="number" name="age" id="age"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="tshirt" class="col-3">T-Shirt </label>
+              <input class="col-6" type="text" name="tshirt" id="tshirt"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="docName" class="col-3">Doctor Name </label>
+              <input class="col-6" type="text" name="docName" id="docName"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="docPhone" class="col-3">Doctor Phone </label>
+              <input class="col-6" type="text" name="docPhone" id="docPhone"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="medInfo" class="col-3">Medical Info </label>
+              <input class="col-6" type="text" name="medInfo" id="medInfo"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="water" class="col-3">Water </label>
+              <input class="col-6" type="text" name="water" id="water"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="walkRide" class="col-3">Walk/Ride </label>
+              <input class="col-6" type="text" name="water" id="water"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="parentFirst" class="col-3">Parent First </label>
+              <input class="col-6" type="text" name="parentFirst" id="parentFirst"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="parentLast" class="col-3">Parent Last </label>
+              <input class="col-6" type="text" name="parentLast" id="parentLast"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="primaryEmail" class="col-3">Primary Email </label>
+              <input class="col-6" type="text" name="primaryEmail" id="primaryEmail"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="primaryPhone" class="col-3">Primary Phone </label>
+              <input class="col-6" type="text" name="primaryPhone" id="primaryPhone"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="otherParentFirst" class="col-3">Other Parent First </label>
+              <input class="col-6" type="text" name="otherParentFirst" id="otherParentFirst"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="otherParentLast" class="col-3">Other Parent Last </label>
+              <input class="col-6" type="text" name="otherParentLast" id="otherParentLast"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="otherEmail" class="col-3">Other Email </label>
+              <input class="col-6" type="text" name="otherEmail" id="otherEmail"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="otherPhone" class="col-3">Other Phone </label>
+              <input class="col-6" type="text" name="otherPhone" id="otherPhone"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="emergencyFirst" class="col-3">Emergency First </label>
+              <input class="col-6" type="text" name="emergencyFirst" id="emergencyFirst"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="emergencyLast" class="col-3">Emergency Last </label>
+              <input class="col-6" type="text" name="emergencyLast" id="emergencyLast"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="emergencyPhone" class="col-3">Emergency Phone </label>
+              <input class="col-6" type="text" name="emergencyPhone" id="emergencyPhone"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="address" class="col-3">Address </label>
+              <input class="col-6" type="text" name="address" id="address"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="city" class="col-3">City </label>
+              <input class="col-6" type="text" name="city" id="city"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="state" class="col-3">State </label>
+              <input class="col-6" type="text" name="state" id="state"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="zipcode" class="col-3">Zip Code </label>
+              <input class="col-6" type="text" name="zipcode" id="zipcode"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="resident" class="col-3">Resident </label>
+              <input class="col-6" type="text" name="resident" id="resident"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="motherPickUp" class="col-3">Mother Pick Up </label>
+              <input class="col-6" type="text" name="motherPickUp" id="motherPickUp"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="fatherPickUp" class="col-3">Father Pick Up </label>
+              <input class="col-6" type="text" name="fatherPickUp" id="fatherPickUp"> <br />
+            </div>
+            <div class="form-group row">
+              <label for="pickUpList" class="col-3">Pick Up List </label>
+              <input class="col-6" type="text" name="pickUpList" id="pickUpList"> <br />
+            </div>
+               <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+            </div>
+          </form>
+      </div>
+    </body>
+    <!-- CDN links copied from https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    </html>
