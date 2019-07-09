@@ -110,6 +110,7 @@ label[for="id"] {
   display: none;
 }
 
+/* table stylings */
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -117,9 +118,15 @@ table {
   padding-right: 15px;
   padding-left: 15px;
 }
-td, th {
-  padding: 5px;
-  border-bottom: 1px solid #aaa;
+
+td,
+th {
+  border: none;
+  float: left;
+}
+.table thead th {
+    vertical-align: center;
+    border: none;
 }
 
 /* Create form stylings*/

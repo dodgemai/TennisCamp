@@ -106,11 +106,11 @@ if (isset($_GET['id'])) {
 <?php endif; ?>
 
 <form method="post" class="edit-form">
-  <h2>Edit User</h2>
+  <h2>Edit Entry</h2>
   <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
   <div class="form-group row">
     <label for="id" class="col-3">ID </label>
-    <input class="col-6" type="text" name="id" id="id" value="<?php echo escape($user['id']); ?>" readonly> <br />
+    <input class="col-6" type="text" name="id" id="id" value="<?php echo escape($user["id"]); ?>"> <br />
   </div>
   <div class="form-group row">
     <label for="name" class="col-3">Name </label>
@@ -236,7 +236,7 @@ if (isset($_GET['id'])) {
     <label for="pickUpList" class="col-3">Pick Up List </label>
     <input class="col-6" type="text" name="pickUpList" id="pickUpList" value="<?php echo escape($user["pickUpList"]); ?>"> <br />
   </div>
-  <input type="submit" name="update" value="update">
+  <input type="submit" name="update" value="Update">
 </form>
 
 <?php require "templates/footer.php"; ?>

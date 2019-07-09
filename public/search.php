@@ -24,38 +24,32 @@ if (isset($_POST['submit'])) {
 <?php
 if (isset($_POST['submit'])) {
   if ($result && $statement->rowCount() > 0) { ?>
-    <h2>Results</h2>
+    <h2>Results for <?php echo escape($_POST['name']); ?></h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Level</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php foreach ($result as $row) : ?>
-        <tr>
-          <td><?php echo escape($row["id"]); ?></td>
-          <td><?php echo escape($row["name"]); ?></td>
-          <td><?php echo escape($row["level"]); ?></td>
-        </tr>
-      <?php endforeach; ?>
-      </tbody>
-    </table>
-    <?php } else { ?>
-      <blockquote>No results found for <?php echo escape($_POST['name']); ?>.</blockquote>
-    <?php }
-} ?>
+    <div class="table table-striped">
+      <table>
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Level</th>
+              </tr>
+          </thead>
+          <tbody>
+          <?php foreach ($result as $row) : ?>
+              <tr>
+                  <td><a href="profile-single.php?id=<?php echo escape($row["id"]); ?>"><?php echo escape($row["name"]); ?></a></td>
+                  <td><?php echo escape($row["level"]); ?></td>
+                  <td><a href="update-single.php?id=<?php echo escape($row["id"]); ?>">Edit</a></td>
+                  <td><a href="delete-single.php?id=<?php echo escape($row["id"]); ?>" onclick="return confirm('Are you sure?')">Delete</a></td>
+              </tr>
+          <?php endforeach; ?>
+          </tbody>
+      </table>
+    </div>
 
-<!-- <form method="post">
-  <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name">
-  <input type="submit" name="submit" value="View Results">
-</form> -->
-
-<a href="index.php">Back to home</a>
+  <?php } else { ?>
+    <blockquote>No results found for <?php echo escape($_POST['name']); ?>.</blockquote>
+  <?php }
+}?>
 
 <?php require "templates/footer.php"; ?>

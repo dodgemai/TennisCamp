@@ -62,19 +62,7 @@ form .form-control {
   border: thin solid black;
 }
 
-label {
-  display: block;
-  float: left;
-}
-label[for="id"]
-{
-    display:none;
-}
-#id {
-  display: none;
-}
-
-
+/* table stylings */
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -85,8 +73,12 @@ table {
 
 td,
 th {
-  padding: 5px;
-  border-bottom: 1px solid #aaa;
+  border: none;
+  float: left;
+}
+.table thead th {
+    vertical-align: center;
+    border: none;
 }
 
 /* Create form stylings*/
@@ -97,24 +89,13 @@ label {
   width: 100%;
   text-align: left;
 }
-label[for="id"] {
+/* label[for="id"] {
   display:none;
 }
 #id {
   display: none;
-}
+} */
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width:100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-td, th {
-  padding: 5px;
-  border-bottom: 1px solid #aaa;
-}
 
 /* Create form stylings*/
 .form-group label {
@@ -128,7 +109,7 @@ td, th {
 }
 .add-form {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
 }
 .create-form {
   margin: 0 auto;
@@ -175,7 +156,6 @@ td, th {
   text-align: center;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 .edit a{
   text-align: center;
@@ -188,16 +168,15 @@ td, th {
 }
 
 /* Edit form stylings*/
-.update-form {
-  text-align: center;
-  font-size: 20px;
-}
 .edit-form {
   margin: 0 auto;
   width:600px;
+  text-align: center;
+  font-size: 18px;
 }
 .edit-form h2{
-  margin: 20px;
+  margin-top: 20px;
+  text-align: center;
 }
 .edit-form .btn {
   color: white;

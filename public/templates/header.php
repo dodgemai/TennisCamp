@@ -36,7 +36,7 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="Search">Search</button>
         </form>
         <form class="form-inline" style="float: left;" method="post" action="filter.php">
-          <select class="custom-select" id="inputGroupSelect">
+          <select class="custom-select" id="inputGroupSelect" name="level">
             <option selected>Choose...</option>
             <option value="Academy">Academy</option>
             <option value="Junior">Junior</option>
