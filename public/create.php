@@ -106,7 +106,7 @@ if (isset($_POST['create'])) {
     </div>
     <div class="form-group row">
       <label for="walkRide" class="col-3">Walk/Ride </label>
-      <input class="col-6" type="text" name="water" id="water"> <br />
+      <input class="col-6" type="text" name="walkRide" id="walkRide"> <br />
     </div>
     <div class="form-group row">
       <label for="parentFirst" class="col-3">Parent First </label>
@@ -184,7 +184,7 @@ if (isset($_POST['create'])) {
       <label for="pickUpList" class="col-3">Pick Up List </label>
       <input class="col-6" type="text" name="pickUpList" id="pickUpList"> <br />
     </div>
-       <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+       <button type="submit" class="btn btn-primary" name="create" value="create">Submit</button>
   </form>
 </div>
 <?php require "templates/footer.php"; ?>

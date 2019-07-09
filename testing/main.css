@@ -157,3 +157,32 @@ td, th {
     flex: 0 0 100%;
     max-width: 60%;;
 }
+
+/*Profile stylings */
+.profile-page .row {
+  width: 100%;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.profile-page {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.profile-page hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 100%;
+  background-color:#FFFF00;
+  height: 1px;
+}
+.profile-name h2{
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profile-page .col {
+  padding-left: 0px;
+  padding-right: 0px;
+}

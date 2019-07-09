@@ -68,25 +68,52 @@ if (isset($_GET['id'])) {
 
 <?php require "templates/header.php"; ?>
 
-  <h2><?php echo $user["name"]?></h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><?php echo escape($user["id"]); ?></td>
-        <td><?php echo escape($user["name"]); ?></td>
-        <td><?php echo escape($user["level"]); ?></td>
-      </tr>
-    </tbody>
-  </table>
-
-<a href="index.php">Back to home</a>
+  <div class="profile-page row">
+    <div class="row profile-name"><h2><?php echo $user["name"]?></h2></div>
+    <div class="row edit"><a href="update-single.php?id=<?php echo escape($user["id"]); ?>">Edit</a></div>
+    <div class="camper-info row">
+      <div class="row"><h4>Camper Information</h4></div>
+      <div class="row"><p>Age: <?php echo escape($user["age"]); ?></p></div>
+      <div class="row"><p>Level: <?php echo escape($user["level"]); ?></p></div>
+      <div class="row"><p>T-Shirt: <?php echo escape($user["tshirt"]); ?></p></div>
+      <div class="row"><p>Water activities: <?php echo escape($user["water"]); ?></p></div>
+      <div class="row"><hr /></div>
+    </div>
+    <div class="emergency row">
+      <div class="row"><h4>Emergency</h4></div>
+      <div class="row"><p>Emergency contact: <?php echo escape($user["emergencyFirst"]) ." ". escape($user["emergencyLast"]); ?></p></div>
+      <div class="row"><p>Emergency phone: <?php echo escape($user["emergencyPhone"]); ?></p></div>
+      <div class="row"><hr /></div>
+    </div>
+    <div class="medical row">
+      <div class="row"><h4>Medical</h4></div>
+      <div class="row"><p>Medical information: <?php echo escape($user["medInfo"]); ?></p></div>
+      <div class="row"><p>Doctor: <?php echo escape($user["docName"]); ?></p></div>
+      <div class="row"><p>Doctor phone: <?php echo escape($user["docPhone"]); ?></p></div>
+      <div class="row"><hr /></div>
+    </div>
+    <div class="parent-info row">
+      <div class="first-parent col">
+        <div class="row"><h4>1st Parent Info</h4></div>
+        <div class="row"><p>Parent: <?php echo escape($user["parentFirst"]) ." ". escape($user["parentLast"]); ?></p></div>
+        <div class="row"><p>Primary phone: <?php echo escape($user["primaryPhone"]); ?></p></div>
+        <div class="row"><p>Primary email: <?php echo escape($user["primaryEmail"]); ?></p></div>
+      </div>
+      <div class="second-parent col">
+        <div class="row"><h4>2nd Parent Info</h4></div>
+        <div class="row"><p>Parent: <?php echo escape($user["otherParentFirst"]) ." ". escape($user["otherParentLast"]); ?></p></div>
+        <div class="row"><p>Other phone: <?php echo escape($user["otherPhone"]); ?></p></div>
+        <div class="row"><p>Primary email: <?php echo escape($user["otherEmail"]); ?></p></div>
+      </div>
+      <div class="row"><p>Address: <?php echo escape($user["address"]); ?>, <?php echo escape($user["city"]); ?>, <?php echo escape($user["state"]); ?> <?php echo escape($user["zipcode"]); ?></div>
+      <div class="row"><hr /></div>
+    </div>
+    <div class="pick-up row">
+      <div class="row"><h4>Pick-Up</h4></div>
+      <div class="row"><p>Can mother pick up child from camp? <?php echo escape($user["motherPickUp"]); ?></p></div>
+      <div class="row"><p>Can father pick up child from camp? <?php echo escape($user["fatherPickUp"]); ?></p></div>
+      <div class="row"><p>Other people authorized to pick up: <?php echo escape($user["pickUpList"]); ?></p></div>
+      <div class="row"><p>Can child walk or ride home from camp? <?php echo escape($user["walkRide"]); ?></p></div>
+    </div>
 
 <?php require "templates/footer.php"; ?>
