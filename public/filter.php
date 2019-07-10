@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
   try  {
     $connection = new PDO($dsn, $username, $password, $options);
     $level = $_POST['level'];
-    $sql = "SELECT * FROM users
+    $sql = "SELECT * FROM weekly
             WHERE level LIKE '%$level%'";
     $statement = $connection->prepare($sql);
     $statement->bindParam(':level', $level, PDO::PARAM_STR);

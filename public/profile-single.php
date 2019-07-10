@@ -71,6 +71,7 @@ if (isset($_GET['id'])) {
   <div class="profile-page row">
     <div class="row profile-name"><h2><?php echo $user["name"]?></h2></div>
     <div class="row edit"><a href="update-single.php?id=<?php echo escape($user["id"]); ?>">Edit</a></div>
+    <div class="row delete"><a href="delete-single.php?id=<?php echo escape($user["id"]); ?>" onclick="return confirm('Are you sure?')">Delete</a></div>
     <div class="camper-info row">
       <div class="row"><h4>Camper Information</h4></div>
       <div class="row"><p>Age: <?php echo escape($user["age"]); ?></p></div>

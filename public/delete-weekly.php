@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
     $id = $_GET['id'];
-    $sql = "DELETE FROM users WHERE id = :id";
+    $sql = "DELETE FROM weekly WHERE id = :id";
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
     $statement->execute();

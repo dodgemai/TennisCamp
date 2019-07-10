@@ -28,12 +28,12 @@
       <a href="delete.php">Delete</a>
     </nav> -->
     <nav class="navbar justify-content-between">
-      <div class="search">
+      <div class="navbar-container">
         <div class="back"><a href="index.php"><button type="submit" class="btn btn-link" onclick="index.php">Back</button></a></div>
         <form class="form-inline" method="post" action="search.php">
           <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
           <input class="form-control" type="text" id="name" name="name" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="Search">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit" name="submit" value="Search">Search</button>
         </form>
         <form class="form-inline" style="float: left;" method="post" action="filter.php">
           <select class="custom-select" id="inputGroupSelect" name="level">
@@ -43,12 +43,13 @@
             <option value="Future Stars">Future Stars</option>
             <option value="Elite">Elite</option>
           </select>
-          <button class="btn btn-outline-success my-2 my-sm-0" name="submit" type="submit">Filter</button>
+          <button class="btn btn-outline-success my-2 my-sm-0 filter-btn" name="submit" type="submit">Filter</button>
         </form>
         <div class="add"><a href="create.php"><button type="submit" class="btn btn-link">+</button></a></div>
+        <div class="see-all"><a href="all-profiles.php"><button type="submit" class="btn btn-link">See All</button></a></div>
+        <div class="export"><form action="export-weekly.php" method="post"><button type="submit" class="btn btn-link" name="export">Export Weekly Report</button></form></div>
       </div>
     </nav>
-
   </div>
     <!-- CDN links copied from https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

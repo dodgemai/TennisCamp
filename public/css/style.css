@@ -21,17 +21,24 @@ nav {
   float: left;
   margin-right: 20px;
 }
-.search {
+.navbar-container {
   display: flex;
   align-items: center;
   width: 100%;
 }
-.search .btn {
+.search-btn {
   color: darkgreen;
   border-color: darkgreen;
-  left-margin: 0px;
 }
-.search .btn:hover {
+.search-btn:hover {
+  background-color: darkgreen;
+  color: white;
+}
+.filter-btn {
+  color: darkgreen;
+  border-color: darkgreen;
+}
+.filter-btn:hover {
   background-color: darkgreen;
   color: white;
 }
@@ -44,8 +51,18 @@ form .form-control {
 .add .btn{
   color: darkblue;
   border: thin solid darkblue;
+  margin-right: 20px;
 }
 .back .btn{
+  color: darkblue;
+  border: thin solid darkblue;
+}
+.see-all .btn{
+  color: darkblue;
+  border: thin solid darkblue;
+  margin-right: 20px;
+}
+.export .btn{
   color: darkblue;
   border: thin solid darkblue;
 }
@@ -56,6 +73,18 @@ form .form-control {
   border: thin solid black;
 }
 .back .btn:hover{
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: thin solid black;
+}
+.see-all .btn:hover{
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: thin solid black;
+}
+.export .btn:hover{
   text-decoration: none;
   background-color: red;
   color: white;
@@ -83,6 +112,9 @@ th {
 .attendence .btn-link{
   padding: 0px;
   height: 30px;
+}
+.form-check-label{
+  margin-right: 3px;
 }
 /* Create form stylings*/
 label {
@@ -167,8 +199,13 @@ label {
 .edit a{
   text-align: center;
   margin: auto;
+}
+.delete a{
+  text-align: center;
+  margin: auto;
   margin-bottom: 20px;
 }
+
 .profile-page .col {
   padding-left: 0px;
   padding-right: 0px;

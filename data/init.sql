@@ -1,6 +1,6 @@
-CREATE DATABASE test2;
+CREATE DATABASE test3;
 
-  use test2;
+  use test3;
 
   CREATE TABLE users (
     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -31,6 +31,16 @@ CREATE DATABASE test2;
     resident VARCHAR(5),
     motherPickUp VARCHAR(5),
     fatherPickUp VARCHAR(5),
-    pickUpList VARCHAR(100),
-    attendance VARCHAR(100)
+    pickUpList VARCHAR(100)
   );
+
+  CREATE TABLE weekly (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    level VARCHAR(30) NOT NULL,
+    attendence VARCHAR(100),
+    earlyPickUp VARCHAR(100),
+    lateOut VARCHAR(100),
+    subs VARCHAR(100),
+    tshirtQty INT(2)
+  )

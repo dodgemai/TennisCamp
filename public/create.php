@@ -48,9 +48,16 @@ if (isset($_POST['create'])) {
       implode(", ", array_keys($new_user)),
       ":" . implode(", :", array_keys($new_user))
     );
-
     $statement = $connection->prepare($sql);
     $statement->execute($new_user);
+
+    $new_user_weekly = array(
+      "name" => $_POST['name'],
+      "level" => $_POST['level'],
+    );
+    $sql2 = sprintf("INSERT INTO `weekly` (`name`, `level`) VALUES (:name, :level)");
+    $statement2 = $connection->prepare($sql2);
+    $statement2->execute($new_user_weekly);
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
   }
