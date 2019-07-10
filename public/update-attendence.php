@@ -12,7 +12,11 @@ if (isset($_POST['save'])) {
     $connection = new PDO($dsn, $username, $password, $options);
     $user =[
       "id"    => $_POST['id'],
-      "attendence" => $_POST['attendence']
+      "monday" => $_POST['monday'],
+      "tuesday" => $_POST['tuesday'],
+      "wednesday" => $_POST['wednesday'],
+      "thursday" => $_POST['thursday'],
+      "friday" => $_POST['friday']
     ];
     $sql = "UPDATE users
             SET monday = :monday,
@@ -50,27 +54,27 @@ if (isset($_POST['save'])) {
 
 <?php require "templates/header.php"; ?>
 
-<form method="post" class="edit-form">
+<form method="post" class="attendence-form">
   <div class="attendence">
     <div class="form-check form-check-inline">
-      <label class="form-check-label" for="M">M</label>
-      <input class="form-check-input" type="checkbox" id="M" value="Monday">
+      <label class="form-check-label" for="monday">M</label>
+      <input class="form-check-input" type="checkbox" id="monday" value="<?php echo escape($user["monday"]); ?>">
     </div>
     <div class="form-check form-check-inline">
       <label class="form-check-label" for="T">T</label>
-      <input class="form-check-input" type="checkbox" id="T" value="Tuesday">
+      <input class="form-check-input" type="checkbox" id="T" value="<?php echo escape($user["tuesday"]); ?>">
     </div>
     <div class="form-check form-check-inline">
       <label class="form-check-label" for="W">W</label>
-      <input class="form-check-input" type="checkbox" id="W" value="Wednesday">
+      <input class="form-check-input" type="checkbox" id="W" value="<?php echo escape($user["wednesday"]); ?>">
     </div>
     <div class="form-check form-check-inline">
       <label class="form-check-label" for="Th">Th</label>
-      <input class="form-check-input" type="checkbox" id="Th" value="Thursday">
+      <input class="form-check-input" type="checkbox" id="Th" value="<?php echo escape($user["thursday"]); ?>">
     </div>
     <div class="form-check form-check-inline">
       <label class="form-check-label" for="F">F</label>
-      <input class="form-check-input" type="checkbox" id="F" value="Friday">
+      <input class="form-check-input" type="checkbox" id="F" value="<?php echo escape($user["friday"]); ?>">
     </div>
   </div></td>
   <input type="submit" name="save" value="Save">

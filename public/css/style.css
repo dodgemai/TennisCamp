@@ -80,7 +80,10 @@ th {
     vertical-align: center;
     border: none;
 }
-
+.attendence .btn-link{
+  padding: 0px;
+  height: 30px;
+}
 /* Create form stylings*/
 label {
   display: inline-block;
@@ -95,7 +98,11 @@ label {
 #id {
   display: none;
 } */
-
+.tshirt-qty .form-control{
+  padding-left: 3px;
+  height: 30px;
+  width: 40%;
+}
 
 /* Create form stylings*/
 .form-group label {

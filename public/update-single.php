@@ -236,7 +236,7 @@ if (isset($_GET['id'])) {
     <label for="pickUpList" class="col-3">Pick Up List </label>
     <input class="col-6" type="text" name="pickUpList" id="pickUpList" value="<?php echo escape($user["pickUpList"]); ?>"> <br />
   </div>
-  <input type="submit" name="update" value="Update">
+  <button type="submit" class="btn btn-primary" name="update" value="Update">Update</button>
 </form>
 
 <?php require "templates/footer.php"; ?>
