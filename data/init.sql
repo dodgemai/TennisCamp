@@ -1,6 +1,6 @@
-CREATE DATABASE test8;
+CREATE DATABASE test11;
 
-  use test8;
+  use test11;
 
   CREATE TABLE users (
     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -39,8 +39,7 @@ CREATE DATABASE test8;
     name VARCHAR(30) NOT NULL,
     level VARCHAR(30) NOT NULL,
     attendence VARCHAR(100),
-    earlyDropOff VARCHAR(100),
     lateOut VARCHAR(100),
     subs VARCHAR(100),
     tshirtQty INT(2)
-  )
+  );

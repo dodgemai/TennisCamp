@@ -40,12 +40,14 @@ try {
           "id"    => $_GET['id'],
           "attendence" => implode(",", $_POST['attendence']),
           "lateOut" => implode(",", $_POST['lateOut']),
-          "subs" => implode(",", $_POST['subs'])
+          "subs" => implode(",", $_POST['subs']),
+          "tshirtQty" => $_POST['tshirtQty']
         ];
         $sql = "UPDATE weekly
                 SET attendence = :attendence,
                     lateOut = :lateOut,
-                    subs = :subs
+                    subs = :subs,
+                    tshirtQty = :tshirtQty
                 WHERE id = :id";
 
       $statement = $connection->prepare($sql);
@@ -162,6 +164,13 @@ try {
                   <div class="form-check form-check-inline">
                     <label class="form-check-label" for="Friday">F</label>
                     <input class="form-check-input" type="checkbox" name="subs[]" id="subs" value="Friday" <?php if(in_array("Friday", explode(",", $row["subs"]))) echo 'checked="checked"'; ?>>
+                  </div>
+                </td>
+
+                <!-- TSHIRT QUANTIT -->
+                <td>
+                  <div class="form-group">
+                    <input class="form-group-tshirt" type="number" name="tshirtQty" id="tshirtQty" value="<?php echo escape($row["tshirtQty"]); ?>">
                   </div>
                 </td>
 

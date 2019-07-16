@@ -55,14 +55,15 @@ if (isset($_POST['create'])) {
       "name" => $_POST['name'],
       "level" => $_POST['level'],
       "attendence" => implode(",", array()),
-      //"earlyDropOff" => implode(",", array())
       "lateOut" => implode(",", array()),
-      "subs" => implode(",", array())
+      "subs" => implode(",", array()),
+      "tshirtQty" => 0
     );
     // $sql2 = sprintf("INSERT INTO `weekly` (name, level, attendence, earlyIn, lateOut, subs) VALUES (:name, :level, :attendence, :earlyIn, :lateOut, :subs)");
-    $sql2 = sprintf("INSERT INTO `weekly` (name, level, attendence, lateOut, subs) VALUES (:name, :level, :attendence, :lateOut, :subs)");
+    $sql2 = "INSERT INTO weekly(name, level, attendence, lateOut, subs, tshirtQty) VALUES (:name, :level, :attendence, :lateOut, :subs, :tshirtQty)";
     $statement2 = $connection->prepare($sql2);
     $statement2->execute($new_user_weekly);
+
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
   }
