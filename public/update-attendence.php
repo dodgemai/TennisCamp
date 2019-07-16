@@ -32,7 +32,78 @@ if (isset($_POST['save'])) {
       echo $sql . "<br>" . $error->getMessage();
   }
 }
+?>
 
+<?php
+  if(isset($_POST['attendence'])){
+    foreach($_POST['attendence'] as $selected){
+        echo $selected."</br>";
+      }
+      try {
+        $connection = new PDO($dsn, $username, $password, $options);
+        $user =[
+          "id"    => $_POST['id'],
+          "attendence" => $_POST['attendence']
+        ];
+        $sql = "UPDATE weekly
+                SET attendence = :attendence
+                WHERE id = :id";
+
+      $statement = $connection->prepare($sql);
+      $statement->execute($user);
+      } catch(PDOException $error) {
+          echo $sql . "<br>" . $error->getMessage();
+      }
+    }
+?>
+
+<?php
+  if(isset($_POST['earlyin'])){
+    foreach($_POST['earlyin'] as $selected){
+        echo $selected."</br>";
+      }
+      try {
+        $connection = new PDO($dsn, $username, $password, $options);
+        $user =[
+          "id"    => $_POST['id'],
+          "earlyIn" => $_POST['earlyin']
+        ];
+        $sql = "UPDATE weekly
+                SET earlyIn = :earlyIn
+                WHERE id = :id";
+
+      $statement = $connection->prepare($sql);
+      $statement->execute($user);
+      } catch(PDOException $error) {
+          echo $sql . "<br>" . $error->getMessage();
+      }
+    }
+?>
+
+<?php
+  if(isset($_POST['lateout'])){
+    foreach($_POST['lateout'] as $selected){
+        echo $selected."</br>";
+      }
+      try {
+        $connection = new PDO($dsn, $username, $password, $options);
+        $user =[
+          "id"    => $_POST['id'],
+          "lateOut" => $_POST['lateout']
+        ];
+        $sql = "UPDATE weekly
+                SET lateOut = :lateOut
+                WHERE id = :id";
+
+      $statement = $connection->prepare($sql);
+      $statement->execute($user);
+      } catch(PDOException $error) {
+          echo $sql . "<br>" . $error->getMessage();
+      }
+  }
+?>
+
+<?php
 // if (isset($_GET['id'])) {
 //   try {
 //     $connection = new PDO($dsn, $username, $password, $options);
